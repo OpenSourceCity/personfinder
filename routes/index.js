@@ -1,8 +1,5 @@
-
-/*
- * GET home page.
- */
-
-exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+module.exports = function(req, res, next) {
+	res.render('index', {
+		title: '寻人主页'
+	});
 };
