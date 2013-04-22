@@ -6,7 +6,7 @@
 //                               
 // @brief: 标准寻人数据接口                              
 // @author: MrWiredancer,GuoYu
-// @version: 0.0.2
+// @version: 0.0.3
 // @role: apis
 
 var express = require('express'),
