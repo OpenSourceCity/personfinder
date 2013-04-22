@@ -1,3 +1,38 @@
+版本更新
+=========
+- 0.0.2 : 重构主文件、接口文件代码。
+
+接口列表
+=========
+
+`http://osc.im/disaster/earthquake/person/find/[type]?[params]`
+
+可选参数：
+
+
+### 选择寻人的平台
+type[String] : baidu || 360 || sohu
+
+--> `http://osc.im/disaster/earthquake/person/find/360`
+
+## TODO
+### 查询条件
+params[page] :  页码
+
+--> `http://osc.im/disaster/earthquake/person/find/360?page=1`
+
+params[perpage] :  每页数量，默认为10
+
+--> `http://osc.im/disaster/earthquake/person/find/360?perpage=20`
+
+params[gender] :  性别 , female/male
+
+--> `http://osc.im/disaster/earthquake/person/find/360?gender=female`
+
+params[phone] :  电话 , Number
+
+--> `http://osc.im/disaster/earthquake/person/find/360?phone=13760120888`
+
 目前存在的问题：
 =========
 

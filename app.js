@@ -12,11 +12,10 @@
 var express = require('express'),
 	path = require('path'),
 	http = require('http'),
-	firebase = require("firebase"),
-	url = require('url'),
-	fork = require("child_process").fork;
+	firebase = require("firebase");
 
-var index = require('./routes/index.js');
+var index = require('./routes/index.js'),
+	parser = require('./lib/parser.js');
 
 app = express();
 
@@ -42,12 +41,14 @@ app.configure('development', function() {
 app.get("/", index);
 
 // query
-app.get("/query/:source", function(req, res) {
+app.get("/person/find/:source", function(req, res) {
 	var source = req.params.source;
 	var type = 'search';
-	var callback = new firebase("http://wiredancer.firebaseio.com/" + source + "/" + type + "/");
-	callback.on("value", function(m) {
-		res.json(m.val())
+	var result = new firebase("http://wiredancer.firebaseio.com/" + source + "/" + type + "/");
+	result.on("value", function(m) {
+		parser(source,m.val(),req.query,function(data){
+			res.json(data)
+		})
 	});
 });
 
